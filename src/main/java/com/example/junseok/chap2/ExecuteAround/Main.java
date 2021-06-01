@@ -27,6 +27,6 @@ public class Main {
 
     @FunctionalInterface
     private interface BufferedReaderProcessor {
-        String process(BufferedReader br) throws IOException;
+        String process(BufferedReader br) throws IOException; //함수형 인터페이스의 추상 메서드 시그니처 -> 함수 디스크립터
     }
 }
