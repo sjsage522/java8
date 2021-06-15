@@ -1,6 +1,6 @@
 package com.example.junseok.chap1;
 
-import com.example.junseok.chap1.domain.Apple;
+import com.example.junseok.domain.Apple;
 import com.example.junseok.chap1.family.ApplePredicate;
 
 import java.util.ArrayList;

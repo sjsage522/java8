@@ -1,4 +1,4 @@
-package com.example.junseok.chap1.domain;
+package com.example.junseok.domain;
 
 public class Apple {
 
