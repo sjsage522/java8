@@ -372,3 +372,28 @@ menu.stream().forEach(System.out::println);
 - 스트림의 요소는 요청할 때 게으르게(lazily) 계산된다.
 
 ## 3. 스트림 활용
+
+### 프레디케이트로 필터링하기
+
+스트림 인터페이스는 filter 메서드를 지원한다. filter 메서드는 프레디케이트(불리언을 반환하는 함수)를 인수로 받아서 프레디케이트와 일치하는 모든 요소를 포함하는 스트림을 반환한다.<br>
+예를들어, 다음 코드처럼 모든 채식요리를 필터링해서 채식 메뉴를 만들 수 있다.
+
+```
+List<Dish> vegeterianMenu = menu.stream()
+                                .filter(Dish::isVegeterian) //채식요리인지 확인하는 메서드 참조
+                                .collect(toList());
+```
+
+### 고유 요소 필터링
+스트림은 고유 요소로 이루어진 스트림을 반환하는 distinct 메서드도 지원한다.(고유 여부는 스트림에서 만든 객체의 hashcode, equals로 결정된다)
+예를들어, 다음 코드는 리스트의 모든 짝수를 선택하고 중복을 필터링한다.
+
+```
+List<Integer> numbers = Arrays.asList(1, 2, 1, 3, 3, 2, 4);
+numbers.stream()
+       .filter(i -> i % 2 == 0)
+       .distinct()
+       .forEach(System.out::println);
+```
+
+### 프레디케이트를 이용한 슬라이싱
