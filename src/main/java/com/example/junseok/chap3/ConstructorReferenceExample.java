@@ -2,11 +2,11 @@ package com.example.junseok.chap3;
 
 import com.example.junseok.domain.Apple;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ConstructorReferenceExample {
 
@@ -40,12 +40,9 @@ public class ConstructorReferenceExample {
     }
 
     private static List<Apple> map(List<Integer> weights, Function<Integer, Apple> f) {
-
-        List<Apple> result = new ArrayList<>();
-        for (Integer weight : weights) {
-            result.add(f.apply(weight));
-        }
-
-        return result;
+        return weights
+                .stream()
+                .map(f)
+                .collect(Collectors.toList());
     }
 }
